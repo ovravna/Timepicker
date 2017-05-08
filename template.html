@@ -17,20 +17,26 @@
 
     <!--ng-show="isActiveTime(angle)" angle="{{angle}}"-->
     <!--ng-repeat="angle in angles"-->
+    <!--ng-class="isActiveTime(angle) ? 'active-time' : 'transparent'"-->
+
     <div class="content" layout-align="center center">
 
         <div class="watch-face">
             <span class="center-point"></span>
             <span id="time-hand"></span>
-
-            <button layout-align="center center"
+            <div layout-align="center center"
                     ng-repeat="angle in angles"
-                    class="deg md-primary"
                     ng-click="setTime(angle)"
-                    ng-class="isActiveTime(angle) ? 'active-time' : 'transparent'"
+                    class="deg md-primary transparent"
+                    ng-class="{'active-text': isActiveTime(angle)}"
                     angle="{{angle}}">
                 {{convertToTimeString(angle)}}
-            </button>
+            </div>
+
+            <timeslider>
+
+            </timeslider>
+
 
         </div>
 
@@ -41,7 +47,4 @@
         </div>
 
     </div>
-
-
 </md-card>
-

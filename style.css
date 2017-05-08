@@ -12,7 +12,29 @@ md-toolbar {
 
 }
 
+.acs, .acs-value, .acs-panel {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+}
 
+timeslider {
+    position: absolute;
+    top: calc(50% - 106px);
+    left: calc(50% - 105px);
+    /*transform-origin: 0 0;*/
+    transform: rotate(90deg);
+}
+
+
+.acs-indicator {
+    background-color: rgba(0, 150, 136, 1);
+    border-color: transparent;
+
+    width: 2em;
+    height: 2em;
+
+}
 
 .inactive {
     color: #a1d6da;
@@ -32,7 +54,10 @@ md-toolbar {
     border: none;
     min-width: 10px;
     background-color: transparent;
+}
 
+.active-text {
+    color: white;
 }
 
 .meridiem-text {
@@ -82,23 +107,32 @@ md-toolbar {
 }
 
 
-.watch-face > button {
+.watch-face > .deg {
     width: 2em;
     height: 2em;
     border-radius: 50%;
     border: transparent;
-}
-
-.transparent {
     background-color: transparent;
+    z-index: 2;
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% - 15px);
+    cursor: pointer;
 
 }
 
-.deg:hover, .active-time {
-    background-color: #009688;
-    color: white;
+/*.transparent {*/
+    /*background-color: transparent;*/
 
-}
+/*}*/
+
+/*.deg:hover, */
+/*.active-time {*/
+    /*background-color: #009688;*/
+    /*color: white;*/
+
+/*}*/
+
 .footer {
     margin-top: 0.5em;
 }
