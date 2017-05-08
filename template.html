@@ -1,9 +1,9 @@
 
 <md-card class="whiteframe-16dp time-card" layout-align="top center">
 
-    <md-toolbar layout-align="center center" class=" md-primary">
+    <md-toolbar layout-align="center center" class="md-primary">
         <div class="watch-text" layout="row">
-            <span ng-click="toHourState()" ng-class="{'inactive': !isHourState}" >{{time.format('h')}}</span>
+            <span id="hours" style="" ng-click="toHourState()" ng-class="{'inactive': !isHourState}" >{{time.format('h')}}</span>
             <span ng-class="{'inactive': isHourState}">:</span>
             <span ng-click="toMinuteState()" ng-class="{'inactive': isHourState}">{{time.format('mm')}}</span>
             <div class="meridiem-text" layout="column">
@@ -15,24 +15,28 @@
         </div>
     </md-toolbar>
 
-
+    <!--ng-show="isActiveTime(angle)" angle="{{angle}}"-->
+    <!--ng-repeat="angle in angles"-->
+    <!--ng-class="isActiveTime(angle) ? 'active-time' : 'transparent'"-->
 
     <div class="content" layout-align="center center">
 
         <div class="watch-face">
             <span class="center-point"></span>
-            <span
+            <span id="time-hand"></span>
+            <div layout-align="center center"
                     ng-repeat="angle in angles"
-                    class="line" ng-show="isActiveTime(angle)" angle="{{angle}}"></span>
-
-            <button layout-align="center center"
-                    ng-repeat="angle in angles"
-                    class="deg md-primary"
                     ng-click="setTime(angle)"
-                    ng-class="isActiveTime(angle) ? 'active-time' : 'transparent'"
+                    class="deg md-primary transparent"
+                    ng-class="{'active-text': isActiveTime(angle)}"
                     angle="{{angle}}">
                 {{convertToTimeString(angle)}}
-            </button>
+            </div>
+
+            <timeslider>
+
+            </timeslider>
+
 
         </div>
 
@@ -43,7 +47,4 @@
         </div>
 
     </div>
-
-
 </md-card>
-
