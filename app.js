@@ -9,6 +9,10 @@ Number.prototype.round = function(toNearest) {
 
 }
 
+Number.prototype.mod = function(n) {
+    return ((this % n) + n) % n;
+}
+
 app.config(function ($mdThemingProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('teal')
@@ -25,10 +29,10 @@ app.directive('timeslider', function() {
         restrict: 'E',
         templateUrl: 'timeslider.html',
         link: function($scope) {
-            $scope.value = 0;
+            $scope.value = $scope.initValue();
             $scope.onSlide = function onSlide(value) {
                 $scope.rotateHandTo(value);
-            }
+            };
 
             $scope.onSlideEnd = function onSlideEnd(value) {
                 // $scope.rotateHandTo(value - 90);
@@ -49,23 +53,8 @@ app.directive('timepicker', function () {
 
         link: function($scope) {
 
-
-
-            function reset() {
-                $scope.time = moment();
-
-                let m = $scope.time.minutes();
-
-                // m = 5 * Math.round(m / 5);
-
-                $scope.time.minutes(m);
-
-                $scope.isHourState = true;
-            }
-
-            reset();
-
-            $scope.minutes = $scope.time.format('mm')
+            $scope.time = moment();
+            $scope.isHourState = true;
 
 
             $scope.angles = [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330];
@@ -100,11 +89,12 @@ app.directive('timepicker', function () {
 
             $scope.toHourState = function() {
                 $scope.isHourState = true;
+                $scope.initValue();
 
             };
             $scope.toMinuteState = function() {
                 $scope.isHourState = false;
-
+                $scope.initValue();
             };
 
             $scope.isAM = function() {
@@ -129,6 +119,7 @@ app.directive('timepicker', function () {
             $scope.isActiveTime = function(angle) {
                 return angle == $scope.value;
             };
+
 
             $scope.setTime = function(angle) {
                 let h = $scope.convertToTime(angle);
@@ -156,8 +147,6 @@ app.directive('timepicker', function () {
             };
 
             $scope.rotateHandTo = function(angle) {
-                console.log('on slide  ' + angle);
-
                 document.getElementById('time-hand').style.transform = 'rotate(' + angle + 'deg)';
 
             };
@@ -176,6 +165,7 @@ app.directive('timepicker', function () {
             $scope.ok = function() {
                 if ($scope.isHourState) {
                     $scope.isHourState = false;
+                    $scope.initValue();
                 } else {
                     alert('Time is ' + $scope.time.format('HH:mm'));
 
@@ -185,6 +175,31 @@ app.directive('timepicker', function () {
             $scope.cancel = function() {
                 reset();
             };
+
+            $scope.initValue = function() {
+                let angle = 0;
+                if ($scope.isHourState) {
+                    let h = $scope.time.hours() % 12;
+                    angle = h * 30;
+                } else {
+                    let m = $scope.time.minutes();
+                    angle = m * 6;
+                }
+                angle = (angle - 90).mod(360);
+                $scope.rotateHandTo(angle);
+                $scope.value = angle;
+                return angle;
+            };
+
+
+            function reset() {
+                $scope.time = moment();
+                $scope.isHourState = true;
+                $scope.initValue();
+            }
+
+            reset();
+
         }
     };
 });

@@ -4,7 +4,7 @@
     <md-toolbar layout-align="center center" class="md-primary">
         <div class="watch-text" layout="row">
             <span id="hours" style="" ng-click="toHourState()" ng-class="{'inactive': !isHourState}" >{{time.format('h')}}</span>
-            <span ng-class="{'inactive': isHourState}">:</span>
+            <span id="time-split" ng-class="{'inactive': isHourState}">:</span>
             <span ng-click="toMinuteState()" ng-class="{'inactive': isHourState}">{{time.format('mm')}}</span>
             <div class="meridiem-text" layout="column">
                 <span ng-class="{'inactive': !isAM()}" ng-click="toAM()">AM</span>

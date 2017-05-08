@@ -3,6 +3,7 @@
     font-family: Roboto, serif;
     outline: none;
 
+
 }
 
 md-toolbar {
@@ -20,8 +21,8 @@ md-toolbar {
 
 timeslider {
     position: absolute;
-    top: calc(50% - 106px);
-    left: calc(50% - 105px);
+    top: calc(50% - 107px);
+    left: calc(50% - 106px);
     /*transform-origin: 0 0;*/
     transform: rotate(90deg);
 }
@@ -48,12 +49,17 @@ timeslider {
 
 .watch-text > span {
     margin: 2px;
+    cursor: pointer;
 }
 
 .watch-text > input {
     border: none;
     min-width: 10px;
     background-color: transparent;
+}
+
+#time-split {
+    cursor: default;
 }
 
 .active-text {
@@ -64,6 +70,11 @@ timeslider {
     font-size: 0.35em;
     margin-top: 9%;
     margin-left: 5px;
+}
+
+.meridiem-text > span {
+    cursor: pointer;
+
 }
 
 .time-card {
