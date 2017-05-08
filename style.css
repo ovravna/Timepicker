@@ -1,0 +1,223 @@
+
+* {
+    font-family: Roboto, serif;
+    outline: none;
+
+}
+
+md-toolbar {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    height: 4em;
+
+}
+
+
+
+.inactive {
+    color: #a1d6da;
+}
+
+.watch-text {
+    margin-left: 12%;
+    font-size: 2em;
+    font-family: Roboto, serif;
+}
+
+.watch-text > span {
+    margin: 2px;
+}
+
+.watch-text > input {
+    border: none;
+    min-width: 10px;
+    background-color: transparent;
+
+}
+
+.meridiem-text {
+    font-size: 0.35em;
+    margin-top: 9%;
+    margin-left: 5px;
+}
+
+.time-card {
+    width: 16em;
+    margin: 2em auto 4em;
+    border-radius: 3px;
+
+}
+
+.time-card > .content {
+    width: 16em;
+    height: 21rem;
+
+}
+
+.watch-face {
+    position: relative;
+    width: 15.5em;
+    height: 15.5em;
+    padding-top: 6.8em;
+    padding-right: 1.9em;
+    margin: 10% auto 0;
+    border-radius: 50%;
+    background-color: #f6f6f6;
+
+    text-align: center;
+    /*vertical-align: middle;*/
+
+}
+
+
+
+.center-point {
+    width: 6px;
+    height: 6px;
+    background-color: #009688;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 3px);
+    left: calc(50% - 3px);
+}
+
+
+.watch-face > button {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    border: transparent;
+}
+
+.transparent {
+    background-color: transparent;
+
+}
+
+.deg:hover, .active-time {
+    background-color: #009688;
+    color: white;
+
+}
+.footer {
+    margin-top: 0.5em;
+}
+
+.footer > .md-primary {
+    margin: 0;
+    padding: 0;
+    min-width: 25%;
+}
+
+.deg {
+    position: absolute;
+}
+
+
+
+.line {
+    width: calc(6.5em - 0.3em);
+    height: 0;
+    border-bottom: 2px solid #009688;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+
+}
+
+
+.line[angle="30"] {
+    transform: rotate(30deg);
+}
+
+.line[angle="60"] {
+    transform: rotate(60deg);
+}
+
+.line[angle="90"] {
+    transform: rotate(90deg);
+}
+
+.line[angle="120"] {
+    transform: rotate(120deg);
+}
+
+.line[angle="150"] {
+    transform: rotate(150deg);
+}
+
+.line[angle="180"] {
+    transform: rotate(180deg);
+}
+
+.line[angle="210"] {
+    transform: rotate(210deg);
+}
+
+.line[angle="240"] {
+    transform: rotate(240deg);
+}
+
+.line[angle="270"] {
+    transform: rotate(270deg);
+}
+
+.line[angle="300"] {
+    transform: rotate(300deg);
+}
+
+.line[angle="330"] {
+    transform: rotate(330deg);
+}
+
+/*Angles for watch face*/
+.deg[angle="0"] {
+    transform: translate(6.5em);
+}
+
+.deg[angle="30"] {
+    transform: rotate(30deg) translate(6.5em) rotate(-30deg);
+}
+
+.deg[angle="60"] {
+    transform: rotate(60deg) translate(6.5em) rotate(-60deg);
+}
+
+.deg[angle="90"] {
+    transform: rotate(90deg) translate(6.5em) rotate(-90deg);
+}
+
+.deg[angle="120"] {
+    transform: rotate(120deg) translate(6.5em) rotate(-120deg);
+}
+
+.deg[angle="150"] {
+    transform: rotate(150deg) translate(6.5em) rotate(-150deg);
+}
+
+.deg[angle="180"] {
+    transform: rotate(180deg) translate(6.5em) rotate(-180deg);
+}
+
+.deg[angle="210"] {
+    transform: rotate(210deg) translate(6.5em) rotate(-210deg);
+}
+
+.deg[angle="240"] {
+    transform: rotate(240deg) translate(6.5em) rotate(-240deg);
+}
+
+.deg[angle="270"] {
+    transform: rotate(270deg) translate(6.5em) rotate(-270deg);
+}
+
+.deg[angle="300"] {
+    transform: rotate(300deg) translate(6.5em) rotate(-300deg);
+}
+
+.deg[angle="330"] {
+    transform: rotate(330deg) translate(6.5em) rotate(-330deg);
+}
+
+

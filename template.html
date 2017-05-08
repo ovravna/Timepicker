@@ -1,0 +1,49 @@
+
+<md-card class="whiteframe-16dp time-card" layout-align="top center">
+
+    <md-toolbar layout-align="center center" class=" md-primary">
+        <div class="watch-text" layout="row">
+            <span ng-click="toHourState()" ng-class="{'inactive': !isHourState}" >{{time.format('h')}}</span>
+            <span ng-class="{'inactive': isHourState}">:</span>
+            <span ng-click="toMinuteState()" ng-class="{'inactive': isHourState}">{{time.format('mm')}}</span>
+            <div class="meridiem-text" layout="column">
+                <span ng-class="{'inactive': !isAM()}" ng-click="toAM()">AM</span>
+                <span ng-class="{'inactive': isAM()}" ng-click="toPM()">PM</span>
+
+            </div>
+
+        </div>
+    </md-toolbar>
+
+
+
+    <div class="content" layout-align="center center">
+
+        <div class="watch-face">
+            <span class="center-point"></span>
+            <span
+                    ng-repeat="angle in angles"
+                    class="line" ng-show="isActiveTime(angle)" angle="{{angle}}"></span>
+
+            <button layout-align="center center"
+                    ng-repeat="angle in angles"
+                    class="deg md-primary"
+                    ng-click="setTime(angle)"
+                    ng-class="isActiveTime(angle) ? 'active-time' : 'transparent'"
+                    angle="{{angle}}">
+                {{convertToTimeString(angle)}}
+            </button>
+
+        </div>
+
+        <div class="footer"  align="right">
+            <md-button ng-click="cancel()" class="md-primary">CANCEL</md-button>
+            <md-button ng-click="ok()" class="md-primary">OK</md-button>
+
+        </div>
+
+    </div>
+
+
+</md-card>
+
