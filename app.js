@@ -101,7 +101,12 @@ app.directive('timepicker', function () {
             $scope.isActiveTime = function(angle) {
                 let t = $scope.convertToTime(angle);
                 let f = $scope.isHourState ? 'h' : 'm';
-                return $scope.time.format(f) == t.toString()
+                let isActive = $scope.time.format(f) == t.toString();
+                if (isActive) {
+                    $scope.rotateHandTo(angle);
+                }
+
+                return isActive;
             };
 
             $scope.setTime = function(angle) {
@@ -127,6 +132,11 @@ app.directive('timepicker', function () {
 
             };
 
+            $scope.rotateHandTo = function(angle) {
+                document.getElementById('time-hand').style.transform = 'rotate('+ angle +'deg)';
+
+
+            };
 
 
             $scope.ok = function() {
