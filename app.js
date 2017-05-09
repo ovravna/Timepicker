@@ -32,6 +32,8 @@ app.directive('timeslider', function() {
             $scope.value = $scope.initValue();
             $scope.onSlide = function onSlide(value) {
                 $scope.rotateHandTo(value);
+                $scope.setTime(value);
+
             };
 
             $scope.onSlideEnd = function onSlideEnd(value) {
@@ -120,7 +122,6 @@ app.directive('timepicker', function () {
                 return angle == $scope.value;
             };
 
-
             $scope.setTime = function(angle) {
                 let h = $scope.convertToTime(angle);
 
@@ -140,7 +141,11 @@ app.directive('timepicker', function () {
                 } else {
                     $scope.time.minutes(h);
                 }
-                $scope.rotateHandTo(angle)
+            };
+
+            $scope.setActiveTime = function(angle) {
+                $scope.setTime(angle);
+                $scope.rotateHandTo(angle);
                 $scope.value = angle;
 
                 $scope.$apply()
@@ -155,7 +160,7 @@ app.directive('timepicker', function () {
             $scope.setNearestTime = function(angle) {
                 let rounder = $scope.isHourState ? 30 : 6;
                 let roundAngle = angle.round(rounder);
-                $scope.setTime(roundAngle);
+                $scope.setActiveTime(roundAngle);
                 $scope.$apply()
 
 
