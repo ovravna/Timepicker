@@ -152,7 +152,9 @@ app.directive('timepicker', function () {
             };
 
             $scope.rotateHandTo = function(angle) {
-                document.getElementById('time-hand').style.transform = 'rotate(' + angle + 'deg)';
+
+                $scope.timeHandStyle = 'rotate(' + angle + 'deg)';
+                // document.getElementById('time-hand').style.transform = 'rotate(' + angle + 'deg)';
 
             };
 

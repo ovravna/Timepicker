@@ -160,7 +160,7 @@ timeslider {
 
 
 
-#time-hand {
+.time-hand {
     width: calc(6.5em - 0.3em);
     height: 0;
     border-bottom: 2px solid #009688;

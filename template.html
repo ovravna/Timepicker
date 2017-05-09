@@ -23,7 +23,7 @@
 
         <div class="watch-face">
             <span class="center-point"></span>
-            <span id="time-hand"></span>
+            <span class="time-hand" ng-style="{'transform': timeHandStyle}"></span>
             <div layout-align="center center"
                     ng-repeat="angle in angles"
                     ng-click="setActiveTime(angle)"
