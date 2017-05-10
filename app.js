@@ -7,11 +7,11 @@ Number.prototype.map = function(in_min, in_max, out_min, out_max) {
 Number.prototype.round = function(toNearest) {
     return toNearest * Math.round(this / toNearest);
 
-}
+};
 
 Number.prototype.mod = function(n) {
     return ((this % n) + n) % n;
-}
+};
 
 app.config(function ($mdThemingProvider) {
     $mdThemingProvider.theme('default')
@@ -37,7 +37,6 @@ app.directive('timeslider', function() {
             };
 
             $scope.onSlideEnd = function onSlideEnd(value) {
-                // $scope.rotateHandTo(value - 90);
                 $scope.setNearestTime(value);
             };
         }
@@ -163,7 +162,7 @@ app.directive('timepicker', function () {
                 let rounder = $scope.isHourState ? 30 : 6;
                 let roundAngle = angle.round(rounder);
                 $scope.setActiveTime(roundAngle);
-                $scope.$apply()
+                // $scope.$apply()
 
 
             };

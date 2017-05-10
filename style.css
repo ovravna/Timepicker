@@ -2,8 +2,8 @@
 * {
     font-family: Roboto, serif;
     outline: none;
-
-
+    user-select: none;
+    /*font-size: 20px;*/
 }
 
 md-toolbar {
@@ -14,10 +14,33 @@ md-toolbar {
 }
 
 .acs, .acs-value, .acs-panel {
-    color: transparent;
-    background-color: transparent;
-    border-color: transparent;
+    visibility: hidden;
+    /*color: transparent;*/
+    /*background-color: transparent;*/
+    /*border-color: transparent;*/
 }
+
+/*.acs-panel {*/
+    /*color: red;*/
+
+    /*background-color: blue;*/
+/*}*/
+
+/*.acs-value {*/
+    /*background-color: #009688;*/
+    /*border-color: transparent;*/
+
+    /*!*width: calc(6.5em - 0.3em);*!*/
+    /*!*height: 0;*!*/
+    /*!*border-radius: 0;*!*/
+    /*!*border-color: transparent;*!*/
+
+    /*!*border-bottom: 2px solid #009688;*!*/
+    /*!*position: absolute;*!*/
+    /*!*top: 50%;*!*/
+    /*!*left: calc(49.8%);*!*/
+    /*!*transform-origin: 0;*!*/
+/*}*/
 
 timeslider {
     position: absolute;
@@ -29,26 +52,36 @@ timeslider {
 
 
 .acs-indicator {
+    visibility: visible;
     background-color: rgba(0, 150, 136, 1);
     border-color: transparent;
-
-    width: 2em;
-    height: 2em;
-
+    color: inherit;
 }
 
 .inactive {
     color: #a1d6da;
 }
 
+.time-hand {
+    width: calc(6.5em - 0.3em);
+    height: 0;
+    border-bottom: 2px solid #009688;
+    position: absolute;
+    top: 50%;
+    left: calc(49.8%);
+    transform-origin: 0;
+}
 .watch-text {
     margin-left: 12%;
-    font-size: 2em;
+    font-size: 1.5rem;
+
     font-family: Roboto, serif;
 }
 
 .watch-text > span {
     margin: 2px;
+    font-size: 2.5rem;
+
     cursor: pointer;
 }
 
@@ -67,19 +100,20 @@ timeslider {
 }
 
 .meridiem-text {
-    font-size: 0.35em;
-    margin-top: 9%;
+    margin-top: 15%;
     margin-left: 5px;
 }
 
 .meridiem-text > span {
+    font-size: 0.7rem;
+
     cursor: pointer;
 
 }
 
 .time-card {
     width: 16em;
-    margin: 2em auto 4em;
+    margin: 2em auto 20%;
     border-radius: 3px;
 
 }
@@ -113,7 +147,7 @@ timeslider {
     background-color: #009688;
     border-radius: 50%;
     position: absolute;
-    top: calc(50% - 3px);
+    top: calc(50% - 2px);
     left: calc(50% - 3px);
 }
 
@@ -125,6 +159,8 @@ timeslider {
     border: transparent;
     background-color: transparent;
     z-index: 2;
+    pointer-events: none;
+
     position: absolute;
     top: calc(50% - 10px);
     left: calc(50% - 15px);
@@ -160,15 +196,6 @@ timeslider {
 
 
 
-.time-hand {
-    width: calc(6.5em - 0.3em);
-    height: 0;
-    border-bottom: 2px solid #009688;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform-origin: 0 0;
-}
 
 
 /*Angles for watch face*/

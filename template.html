@@ -18,6 +18,7 @@
     <!--ng-show="isActiveTime(angle)" angle="{{angle}}"-->
     <!--ng-repeat="angle in angles"-->
     <!--ng-class="isActiveTime(angle) ? 'active-time' : 'transparent'"-->
+    <!--ng-click="setActiveTime(angle)"-->
 
     <div class="content" layout-align="center center">
 
@@ -25,11 +26,10 @@
             <span class="center-point"></span>
             <span class="time-hand" ng-style="{'transform': timeHandStyle}"></span>
             <div layout-align="center center"
-                    ng-repeat="angle in angles"
-                    ng-click="setActiveTime(angle)"
-                    class="deg md-primary transparent"
-                    ng-class="{'active-text': isActiveTime(angle)}"
-                    angle="{{angle}}">
+                ng-repeat="angle in angles"
+                class="deg md-primary transparent"
+                ng-class="{'active-text': isActiveTime(angle)}"
+                angle="{{angle}}">
                 {{convertToTimeString(angle)}}
             </div>
 
